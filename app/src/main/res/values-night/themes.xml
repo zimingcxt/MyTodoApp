@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.MyTodoApp" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Customize your dark theme here. -->
+    </style>
+
+    <!-- 夜间模式也需要应用自定义样式 -->
+    <style name="Theme.MyTodoApp" parent="Base.Theme.MyTodoApp">
+        <item name="toolbarStyle">@style/Widget.App.Toolbar</item>
+        <!-- 应用在日间模式文件中定义的 PopupMenu 样式 -->
+        <item name="android:popupMenuStyle">@style/Widget.App.PopupMenu</item>
+    </style>
+</resources>

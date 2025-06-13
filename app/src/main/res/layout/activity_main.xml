@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/root_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <ImageView
+        android:id="@+id/iv_background"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:src="@drawable/my_background_image"
+        android:contentDescription="背景图片" />
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/colorPrimary"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            app:title="我的待办事项 v6" />
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvTodoItems"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="8dp"
+        android:clipToPadding="false"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        android:layout_marginBottom="210dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:orientation="vertical"
+        android:padding="16dp"
+        android:background="#FFFFFF"
+        android:elevation="8dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+            <EditText android:id="@+id/etTodoTitle" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:hint="输入新的待办事项..." android:inputType="text" android:background="@drawable/edit_text_background" android:padding="12dp" android:layout_marginEnd="12dp"/>
+            <com.google.android.material.floatingactionbutton.FloatingActionButton android:id="@+id/btnAddTodo" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/ic_add" app:tint="@android:color/white" app:backgroundTint="?attr/colorPrimary" android:contentDescription="添加任务" />
+        </LinearLayout>
+
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:layout_marginTop="12dp">
+            <com.google.android.material.button.MaterialButton android:id="@+id/btnSetStartTime" style="@style/Widget.MaterialComponents.Button.TextButton.Icon" android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:text="开始时间" app:icon="@drawable/ic_calendar" android:layout_marginEnd="4dp"/>
+            <com.google.android.material.button.MaterialButton android:id="@+id/btnSetEndTime" style="@style/Widget.MaterialComponents.Button.TextButton.Icon" android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:text="截止时间" app:icon="@drawable/ic_calendar" android:layout_marginStart="4dp"/>
+        </LinearLayout>
+
+
+        <com.google.android.material.chip.ChipGroup android:id="@+id/priorityChipGroup" android:layout_width="match_parent" android:layout_height="wrap_content" app:singleSelection="true" app:chipSpacingHorizontal="8dp" android:layout_marginTop="8dp">
+            <com.google.android.material.chip.Chip android:id="@+id/chipHigh" style="@style/Widget.MaterialComponents.Chip.Choice" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="高优" app:chipBackgroundColor="@color/chip_high_priority_state_color" app:chipStrokeColor="@color/chip_high_priority_state_color" android:textColor="@color/chip_text_state_color" app:chipStrokeWidth="1dp" />
+            <com.google.android.material.chip.Chip android:id="@+id/chipMedium" style="@style/Widget.MaterialComponents.Chip.Choice" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="中优" android:checked="true" app:chipBackgroundColor="@color/chip_medium_priority_state_color" app:chipStrokeColor="@color/chip_medium_priority_state_color" android:textColor="@color/chip_text_state_color" app:chipStrokeWidth="1dp"/>
+            <com.google.android.material.chip.Chip android:id="@+id/chipLow" style="@style/Widget.MaterialComponents.Chip.Choice" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="低优" app:chipBackgroundColor="@color/chip_low_priority_state_color" app:chipStrokeColor="@color/chip_low_priority_state_color" android:textColor="@color/chip_text_state_color" app:chipStrokeWidth="1dp"/>
+        </com.google.android.material.chip.ChipGroup>
+    </LinearLayout>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
